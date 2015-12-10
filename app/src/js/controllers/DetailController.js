@@ -8,4 +8,13 @@ angular.module('resthitter')
 
     dc.person = People.get({id:id});
 
+    dc.save = function(){
+        // People.save({}, dc.person, function(){})
+        dc.person.$save().then(function(){
+            console.log("Success");
+        });
+        // POST .../people
+    }
+
 }]);
+

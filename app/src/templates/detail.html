@@ -1,2 +1,8 @@
-<h1>{{ dc.person.name }}</h1>
-<h2>{{ dc.person.twitter }}</h2>
+<h1>
+    <span editable-text="dc.person.name">{{ dc.person.name }}</span>
+</h1>
+<h2>
+    <span editable-text="dc.person.twitter">{{ dc.person.twitter }}</span>
+</h2>
+
+<button class="btn btn-default" ng-click="dc.save()">Save</button>
