@@ -9,6 +9,14 @@ app.use(function(req, res, next){
     next();
 });
 
+// CORS
+app.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin", "*"); // Not supposed to allow everything
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 var people = [
     {id: 1, name: "Steve", twitter: "@steveyeun"},
     {id: 2, name: "Norman", twitter: "@wwwbigbaldhead"},
@@ -21,8 +29,20 @@ app.get('/people', function(req, res){
     res.json(people); // Wrapper for res.send
     //res.end();
 
+});
 
+
+app.get('/people/:id', function(req, res){
+    var id = req.params.id;
+
+    people.forEach(function(person){
+        if(person.id == id){
+            res.json(person);
+        }
+    });
 
 });
+
+
 
 app.listen(7000);
