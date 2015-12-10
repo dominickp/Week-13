@@ -41,6 +41,8 @@ app.get('/people/:id', function(req, res){
         }
     });
 
+    res.status(404).end();
+
 });
 
 
