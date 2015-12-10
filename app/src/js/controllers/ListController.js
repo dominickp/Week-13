@@ -7,16 +7,22 @@ angular.module('resthitter').controller('ListController', ['People', function(Pe
   //  {id: 4, name: "Danai", twitter: "@DanaiGurira"}
   //];
 
-  lc.people = People.query();
-  // GET localhost:7000/people
+    lc.people = People.query();
+    // GET localhost:7000/people
 
-  // People.get({id:1})
-  // GET localhost:7000/people/1
+    // People.get({id:1})
+    // GET localhost:7000/people/1
 
-  // People.save()
-  // POST localhost:7000/people
+    // People.save()
+    // POST localhost:7000/people
 
-  // People.delete({id:1})
-  // DELETE localhost:7000/people/1
+    // People.delete({id:1})
+    // DELETE localhost:7000/people/1
+
+    lc.delete = function(id){
+        People.delete({id:id}, function(){
+
+        });
+    };
 
 }]);
